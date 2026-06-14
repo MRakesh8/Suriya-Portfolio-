@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Surya — Creative Video Editor & Digital Artist</title>
+  <meta name="description" content="Surya — Creative Video Editor, Digital Painter & Motion Designer with 2 years experience. Reels, Cinematic edits, AI-enhanced visuals." />
+  <meta property="og:title" content="Surya — Creative Video Editor & Digital Artist" />
+  <meta property="og:description" content="Video Editor, Digital Painter & Motion Designer — 2 years experience. Reels, cinematic edits & AI-enhanced visuals." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#1B1716" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23810100'/><stop offset='1' stop-color='%23630102'/></linearGradient></defs><rect fill='url(%23g)' width='100' height='100' rx='20'/><text x='50' y='68' font-size='52' font-weight='bold' text-anchor='middle' fill='%23EDEBDE' font-family='sans-serif'>S</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="preload" href="style.css" as="style" />
+  <link rel="preload" href="main.js" as="script" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="preloader" id="preloader">
+    <canvas id="preloader3d" class="preloader-canvas" aria-hidden="true"></canvas>
+    <div class="preloader-vignette" aria-hidden="true"></div>
+    <div class="preloader-content">
+      <div class="preloader-orbit" aria-hidden="true">
+        <span class="preloader-orbit-ring"></span>
+        <span class="preloader-orbit-ring preloader-orbit-ring--2"></span>
+      </div>
+      <div class="preloader-brand">
+        <span class="preloader-mark" aria-hidden="true">S</span>
+        <h1 class="preloader-text" aria-label="Surya">Surya</h1>
+      </div>
+      <p class="preloader-tag">Creative Video Editor &amp; Digital Artist</p>
+      <div class="preloader-progress">
+        <div class="preloader-bar"><div class="preloader-fill" id="preloaderFill"></div></div>
+        <span class="preloader-percent" id="preloaderPercent">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="bg3d" class="bg-canvas-3d" aria-hidden="true"></canvas>
+  <div class="bg-vignette" aria-hidden="true"></div>
+
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+  <aside class="side-nav" id="sideNav">
+    <a href="#home" class="side-dot active" data-section="home" aria-label="Home"><span></span></a>
+    <a href="#about" class="side-dot" data-section="about" aria-label="About"><span></span></a>
+    <a href="#experience" class="side-dot" data-section="experience" aria-label="Experience"><span></span></a>
+    <a href="#services" class="side-dot" data-section="services" aria-label="Services"><span></span></a>
+    <a href="#portfolio" class="side-dot" data-section="portfolio" aria-label="Portfolio"><span></span></a>
+    <a href="#skills" class="side-dot" data-section="skills" aria-label="Skills"><span></span></a>
+    <a href="#contact" class="side-dot" data-section="contact" aria-label="Contact"><span></span></a>
+  </aside>
+
+  <header id="navbar" class="nav-header">
+    <div class="nav-shell">
+      <div class="nav-shell-border" aria-hidden="true"></div>
+      <div class="nav-inner">
+        <a href="#home" class="nav-logo magnetic" aria-label="Surya — Home">
+          <span class="nav-logo-mark" aria-hidden="true">S</span>
+          <span class="nav-logo-text">Surya</span>
+        </a>
+
+        <nav class="nav-desktop" aria-label="Main navigation">
+          <ul class="nav-menu">
+            <li><a href="#home" class="nav-item" data-section="home">Home</a></li>
+            <li><a href="#about" class="nav-item" data-section="about">About</a></li>
+            <li><a href="#experience" class="nav-item" data-section="experience">Experience</a></li>
+            <li><a href="#services" class="nav-item" data-section="services">Services</a></li>
+            <li><a href="#portfolio" class="nav-item" data-section="portfolio">Works</a></li>
+            <li><a href="#contact" class="nav-item" data-section="contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="https://wa.me/918098970058?text=Hi%20Surya,%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project." class="nav-cta magnetic" target="_blank" rel="noopener noreferrer">
+            <span>Hire Me</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://www.instagram.com/___editor_surya/" class="nav-icon magnetic" target="_blank" rel="noopener noreferrer" aria-label="Instagram @___editor_surya">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <nav class="nav-drawer" id="navDrawer" aria-label="Mobile navigation">
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#portfolio" class="nav-link">Works</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-drawer-footer">
+        <a href="https://www.instagram.com/___editor_surya/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="mailto:suryapranav2606@gmail.com">Email</a>
+        <a href="https://wa.me/918098970058" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </div>
+    </nav>
+  </header>
+
+  <main id="smooth-wrapper">
+    <div id="smooth-content">
+
+      <div class="marquee-band marquee-top">
+        <div class="marquee-track">
+          <div class="marquee-set">
+            <span>VIDEO EDITING</span><i>✦</i>
+            <span>MOTION DESIGN</span><i>✦</i>
+            <span>DIGITAL PAINTING</span><i>✦</i>
+            <span>AI CREATIVE</span><i>✦</i>
+            <span>REELS &amp; SHORTS</span><i>✦</i>
+            <span>CINEMATIC EDITS</span><i>✦</i>
+          </div>
+          <div class="marquee-set" aria-hidden="true">
+            <span>VIDEO EDITING</span><i>✦</i>
+            <span>MOTION DESIGN</span><i>✦</i>
+            <span>DIGITAL PAINTING</span><i>✦</i>
+            <span>AI CREATIVE</span><i>✦</i>
+            <span>REELS &amp; SHORTS</span><i>✦</i>
+            <span>CINEMATIC EDITS</span><i>✦</i>
+          </div>
+        </div>
+      </div>
+
+      <section id="home" class="hero section-pin">
+        <div class="hero-grain"></div>
+        <div class="hero-bg-word" aria-hidden="true">SURYA</div>
+        <div class="container hero-layout">
+          <div class="hero-inner hero-tilt">
+            <p class="hero-eyebrow split-lines">Creative</p>
+            <h1 class="hero-name">
+              <span class="hero-name-line" data-split>Surya</span>
+            </h1>
+            <h2 class="hero-role split-lines">Video Editor &amp; <em>Digital Artist</em></h2>
+            <p class="hero-sub split-lines">2 Years of professional experience crafting visually stunning, emotionally engaging content — from Reels to cinematic edits.</p>
+            <div class="hero-actions">
+              <a href="#portfolio" class="btn-primary magnetic">
+                <span>View My Works</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="#about" class="btn-outline magnetic">About Me</a>
+            </div>
+          </div>
+          <div class="hero-showcase card-3d">
+            <div class="hero-showcase-label">Portfolio Highlights</div>
+            <div class="hero-stat-grid">
+              <div class="hero-stat"><span>2+</span><small>Years Experience</small></div>
+              <div class="hero-stat"><span>12+</span><small>Projects</small></div>
+              <div class="hero-stat"><span>10+</span><small>Tools Mastered</small></div>
+            </div>
+            <div class="hero-skill-tags">
+              <span>After Effects</span><span>Premiere Pro</span><span>Motion Design</span>
+              <span>AI Creative</span><span>Color Grading</span><span>Reels Editing</span>
+            </div>
+            <a href="https://www.instagram.com/___editor_surya/" class="hero-ig-link magnetic" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              @___editor_surya
+            </a>
+          </div>
+        </div>
+        <a href="#about" class="hero-scroll split-lines">
+          <span>Scroll down</span>
+          <span class="scroll-line"></span>
+        </a>
+      </section>
+
+      <section id="about" class="about section">
+        <div class="container">
+        <div class="section-head section-head--split">
+          <div class="section-label split-lines">About Me</div>
+        </div>
+        <div class="about-grid">
+          <div class="about-text">
+            <p class="about-lead split-lines">
+              Hi, I'm Surya — a passionate <em>Video Editor, Digital Painter, and Motion Designer</em> with 2 years of professional experience.
+            </p>
+            <p class="about-body split-lines">
+              I create visually stunning and emotionally engaging content — from Instagram Reels to cinematic video edits.
+            </p>
+            <p class="about-body split-lines">
+              I also use AI-powered tools to enhance creativity, speed, and storytelling impact.
+            </p>
+          </div>
+          <div class="about-highlight card-3d reveal-up">
+            <span class="about-tag">2 Years</span>
+            <p>Professional experience in video editing, motion design &amp; digital art</p>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <section id="experience" class="experience section">
+        <div class="container">
+        <div class="experience-grid">
+        <div class="experience-copy">
+          <div class="section-label split-lines">Experience</div>
+          <p class="experience-lead split-lines">
+            Freelance Video Editor &amp; Designer — turning ideas into <em>powerful visual experiences.</em>
+          </p>
+        </div>
+        <div class="experience-card card-3d">
+          <div class="exp-meta">
+            <span class="exp-date">2 Years — Freelance</span>
+            <a href="https://www.instagram.com/___editor_surya/" class="exp-link magnetic" target="_blank" rel="noopener noreferrer">See my Instagram →</a>
+          </div>
+          <h3 class="exp-title">Freelance Video Editor &amp; Designer</h3>
+          <p class="exp-desc">Worked with creators and clients on various projects, including social media content, cinematic edits, and brand visuals. Skilled in using AI tools to boost creativity and deliver professional-quality results.</p>
+          <div class="exp-tags">
+            <span>Social Media Content</span>
+            <span>Cinematic Edits</span>
+            <span>Brand Visuals</span>
+            <span>AI-Enhanced Workflow</span>
+          </div>
+        </div>
+        </div>
+        </div>
+      </section>
+
+      <div class="marquee-band marquee-features">
+        <div class="marquee-track reverse">
+          <div class="marquee-set">
+            <span>AI CREATIVE</span><i>•</i>
+            <span>STORYTELLING</span><i>•</i>
+            <span>REAL RESULTS</span><i>•</i>
+            <span>FLEXIBLE PRICING</span><i>•</i>
+          </div>
+          <div class="marquee-set" aria-hidden="true">
+            <span>AI CREATIVE</span><i>•</i>
+            <span>STORYTELLING</span><i>•</i>
+            <span>REAL RESULTS</span><i>•</i>
+            <span>FLEXIBLE PRICING</span><i>•</i>
+          </div>
+        </div>
+      </div>
+
+      <section id="services" class="services">
+        <div class="hscroll-pin" id="servicesPin">
+          <div class="hscroll-inner">
+            <div class="hscroll-header container">
+              <div class="section-label split-lines">What I Do</div>
+              <h2 class="section-heading section-heading--compact split-lines">
+                Transforming ideas into <em>engaging visual stories.</em>
+              </h2>
+            </div>
+            <div class="hscroll-viewport">
+              <div class="hscroll-track" id="servicesTrack">
+                <article class="hscroll-panel service-panel card-3d">
+                  <div class="service-body">
+        <h3>Video Editing</h3>
+                    <div class="service-pills">
+                      <span>Reels</span><span>Shorts</span><span>YouTube</span><span>Cinematic</span><span>Wedding</span>
+                    </div>
+                    <p>High-impact video editing for Instagram Reels, YouTube Shorts, long-form YouTube, cinematic projects, and wedding films — beat-synced, color graded, and story-driven.</p>
+                  </div>
+                  <div class="service-visual sv-reels"><div class="sv-play">▶</div></div>
+                </article>
+                <article class="hscroll-panel service-panel card-3d">
+                  <div class="service-body">
+                    <h3>Motion Design &amp; Animation</h3>
+                    <div class="service-pills">
+                      <span>After Effects</span><span>Logo Reveal</span><span>Motion Graphics</span>
+                    </div>
+                    <p>Custom animations, logo reveals, trailer edits, and motion graphics — from shape-layer character animation to cinematic intro sequences.</p>
+                  </div>
+                  <div class="service-visual sv-motion"><div class="sv-play">◈</div></div>
+                </article>
+                <article class="hscroll-panel service-panel card-3d">
+                  <div class="service-body">
+                    <h3>Digital Painting &amp; Design</h3>
+                    <div class="service-pills">
+                      <span>Photoshop</span><span>Illustrator</span><span>Paintstorm</span>
+                    </div>
+                    <p>Digital painting, vector illustrations, poster design, and brand visuals — crafted with attention to color, composition, and creative storytelling.</p>
+                  </div>
+                  <div class="service-visual sv-design"><div class="sv-play">🎨</div></div>
+                </article>
+                <article class="hscroll-panel service-panel card-3d">
+                  <div class="service-body">
+                    <h3>AI-Enhanced Creative</h3>
+                    <div class="service-pills">
+                      <span>AI Video</span><span>Prompt Design</span><span>Human Polish</span>
+                    </div>
+                    <p>AI-based video generation combined with human editing — color grading, sound design, and effects for cinematic, visually engaging results.</p>
+                  </div>
+                  <div class="service-visual sv-ai"><div class="sv-play">✦</div></div>
+                </article>
+              </div>
+            </div>
+            <div class="hscroll-ui">
+              <div class="hscroll-bar"><div class="hscroll-bar-fill" id="servicesBarFill"></div></div>
+              <span class="hscroll-hint">Scroll down · slides move <em>left → right</em></span>
+            </div>
+          </div>
+        </div>
+        <div class="services-footer section-compact reveal-up container">
+          <p>For specific requests, please contact me</p>
+          <a href="https://wa.me/918098970058?text=Hi%20Surya,%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project." class="btn-primary magnetic" target="_blank" rel="noopener noreferrer">Start a Project Now</a>
+        </div>
+      </section>
+
+      <section class="personality section">
+        <div class="container container--center">
+        <div class="section-label split-lines">Creative mind be like</div>
+        <div class="personality-text">
+          <p class="split-lines">Video Editor, Digital Painter &amp; Motion Designer,</p>
+          <p class="split-lines personality-accent">enhancing every frame with <em>AI-powered creativity</em></p>
+        </div>
+      </div>
+      </section>
+
+      <section class="offer section">
+        <div class="container container--center">
+        <p class="offer-eyebrow split-lines">You will get</p>
+        <h2 class="offer-title split-lines">All-in-one Services</h2>
+        <p class="offer-sub split-lines">From Reels to cinematic edits — <em>visual excellence</em> delivered</p>
+    </div>
+      </section>
+
+      <section class="big-cta section">
+        <div class="container container--center">
+        <h2 class="big-cta-text">
+          <span class="big-cta-line" data-split>Let's</span>
+          <span class="big-cta-line" data-split>Connect</span>
+        </h2>
+        <a href="#contact" class="btn-outline magnetic big-cta-btn">Contact Me</a>
+    </div>
+  </section>
+
+      <section id="portfolio" class="portfolio">
+        <div class="hscroll-pin" id="portfolioPin">
+          <div class="hscroll-inner">
+            <div class="hscroll-header container">
+              <div class="section-label split-lines">My Work</div>
+              <h2 class="section-heading section-heading--compact split-lines">Projects that tell <em>powerful stories.</em></h2>
+            </div>
+            <div class="hscroll-viewport">
+              <div class="hscroll-track" id="portfolioTrack">
+                <!-- Paste a YouTube or Instagram URL into data-video-url on any work-thumb below. -->
+
+            <article class="work-card card-3d">
+              <div class="work-card-top">
+                <span class="work-cat">MOTION DESIGN</span>
+              </div>
+              <div class="work-thumb wt-1" data-video-url="">
+                <div class="work-overlay"><span>Abstract Face Animation</span></div>
+              </div>
+              <p class="work-desc">Created in After Effects using Pen Tool &amp; Shape Layers — bold colors, smooth motion, cubist-style design.</p>
+            </article>
+
+            <article class="work-card card-3d">
+              <div class="work-card-top">
+                <span class="work-cat">AI CREATIVE</span>
+              </div>
+              <div class="work-thumb wt-2" data-video-url="">
+                <div class="work-overlay"><span>AI Video Generation</span></div>
+              </div>
+              <p class="work-desc">AI prompts for scenes &amp; motion, enhanced with color grading, sound design &amp; cinematic effects.</p>
+            </article>
+
+            <article class="work-card card-3d">
+              <div class="work-card-top">
+                <span class="work-cat">MOTION DESIGN</span>
+              </div>
+              <div class="work-thumb wt-3" data-video-url="">
+                <div class="work-overlay"><span>Netflix Intro Animation</span></div>
+              </div>
+              <p class="work-desc">Custom Netflix-style intro in Premiere Pro with synchronized SFX, timing &amp; cinematic sound design.</p>
+            </article>
+
+            <article class="work-card card-3d">
+              <div class="work-card-top">
+                <span class="work-cat">CINEMATIC EDIT</span>
+              </div>
+              <div class="work-thumb wt-4" data-video-url="">
+                <div class="work-overlay"><span>Spider-Man Fan Edit</span></div>
+              </div>
+              <p class="work-desc">SFX, music &amp; color grading for a moody, dramatic fan tribute with lyrical overlays.</p>
+            </article>
+
+            <article class="work-card card-3d">
+              <div class="work-card-top">
+                <span class="work-cat">MOTION DESIGN</span>
+              </div>
+              <div class="work-thumb wt-5" data-video-url="">
+                <div class="work-overlay"><span>Maaveeran Edit</span></div>
+              </div>
+              <p class="work-desc">Motion graphic WhatsApp animation with custom voice, SFX, text animation &amp; BGM in After Effects.</p>
+            </article>
+
+            <article class="work-card card-3d">
+              <div class="work-card-top">
+                <span class="work-cat">MOTION DESIGN</span>
+              </div>
+              <div class="work-thumb wt-6" data-video-url="">
+                <div class="work-overlay"><span>Wedding Invitation</span></div>
+              </div>
+              <p class="work-desc">Vector wedding invite animated in AE — floral elements, typography &amp; elegant motion.</p>
+            </article>
+
+            <article class="work-card card-3d">
+              <div class="work-card-top">
+                <span class="work-cat">BRAND VIDEO</span>
+              </div>
+              <div class="work-thumb wt-7" data-video-url="">
+                <div class="work-overlay"><span>Website Launch Video</span></div>
+              </div>
+              <p class="work-desc">Logo reveal, text motion &amp; transition effects for a modern brand intro.</p>
+            </article>
+
+            <article class="work-card card-3d">
+              <div class="work-card-top">
+                <span class="work-cat">MOTION DESIGN</span>
+              </div>
+              <div class="work-thumb wt-8" data-video-url="">
+                <div class="work-overlay"><span>Logo Animation</span></div>
+              </div>
+              <p class="work-desc">Smooth logo reveal with motion, glow &amp; transition effects in After Effects.</p>
+            </article>
+
+            <article class="work-card card-3d">
+              <div class="work-card-top">
+                <span class="work-cat">VIDEO EDITING</span>
+              </div>
+              <div class="work-thumb wt-9" data-video-url="">
+                <div class="work-overlay"><span>Trailer Editing</span></div>
+              </div>
+              <p class="work-desc">Movie-style trailers with scene timing, transitions &amp; BGM sync for maximum impact.</p>
+            </article>
+
+            <article class="work-card card-3d">
+              <div class="work-card-top">
+                <span class="work-cat">OTHER SKILLS</span>
+              </div>
+              <div class="work-thumb wt-10" data-video-url="">
+                <div class="work-overlay"><span>Meme Creation</span></div>
+              </div>
+              <p class="work-desc">Trending memes with perfect comic timing, captions, color tone &amp; background music.</p>
+            </article>
+
+            <article class="work-card card-3d">
+              <div class="work-card-top">
+                <span class="work-cat">OTHER SKILLS</span>
+              </div>
+              <div class="work-thumb wt-11" data-video-url="">
+                <div class="work-overlay"><span>Storyboarding</span></div>
+              </div>
+              <p class="work-desc">Detailed storyboards — camera angles, framing &amp; shot flow for smooth storytelling.</p>
+            </article>
+
+            <article class="work-card card-3d">
+              <div class="work-card-top">
+                <span class="work-cat">OTHER SKILLS</span>
+              </div>
+              <div class="work-thumb wt-12" data-video-url="">
+                <div class="work-overlay"><span>Script-based Editing</span></div>
+              </div>
+              <p class="work-desc">Script-driven edits with structured pacing, narrative flow &amp; professional polish.</p>
+            </article>
+
+              </div>
+            </div>
+            <div class="hscroll-ui">
+              <div class="hscroll-bar"><div class="hscroll-bar-fill" id="portfolioBarFill"></div></div>
+              <span class="hscroll-hint">Scroll down · projects slide <em>left → right</em></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tagline section">
+        <div class="container container--center">
+        <h2 class="tagline-text split-lines">
+          Freelancer with a passion for turning ideas into <em>powerful visual experiences.</em>
+        </h2>
+        <div class="tagline-actions reveal-up">
+          <a href="#portfolio" class="btn-primary magnetic">View My Works</a>
+          <a href="#contact" class="btn-outline magnetic">Contact Me</a>
+        </div>
+        </div>
+  </section>
+
+      <section class="techniques section">
+        <div class="container container--center">
+        <h2 class="techniques-title">
+          <span class="techniques-line split-lines">Mastered</span>
+          <span class="techniques-line split-lines techniques-accent">Techniques</span>
+        </h2>
+        <div class="marquee-band marquee-tech">
+          <div class="marquee-track">
+            <div class="marquee-set">
+              <span>Color Grading</span><i>✦</i>
+              <span>Sound Design</span><i>✦</i>
+              <span>Motion Typography</span><i>✦</i>
+              <span>AI Prompting</span><i>✦</i>
+              <span>Storyboarding</span><i>✦</i>
+              <span>Logo Animation</span><i>✦</i>
+              <span>Trailer Editing</span><i>✦</i>
+              <span>Meme Creation</span><i>✦</i>
+            </div>
+            <div class="marquee-set" aria-hidden="true">
+              <span>Color Grading</span><i>✦</i>
+              <span>Sound Design</span><i>✦</i>
+              <span>Motion Typography</span><i>✦</i>
+              <span>AI Prompting</span><i>✦</i>
+              <span>Storyboarding</span><i>✦</i>
+              <span>Logo Animation</span><i>✦</i>
+              <span>Trailer Editing</span><i>✦</i>
+              <span>Meme Creation</span><i>✦</i>
+            </div>
+          </div>
+        </div>
+      </div>
+      </section>
+
+      <section id="stats" class="stats section">
+        <div class="container">
+        <div class="section-head section-head--center">
+        <div class="section-label split-lines">By the Numbers</div>
+        <p class="stats-lead split-lines">
+          Two years of creative work — from Reels to cinematic motion design.
+        </p>
+      </div>
+        <div class="stats-grid">
+          <div class="stat-item reveal-up">
+            <span class="stat-num" data-count="2" data-suffix="+">0</span>
+            <span class="stat-label">Years Experience</span>
+      </div>
+          <div class="stat-item reveal-up">
+            <span class="stat-num" data-count="12" data-suffix="+">0</span>
+            <span class="stat-label">Creative Projects</span>
+      </div>
+          <div class="stat-item reveal-up">
+            <span class="stat-num" data-count="10" data-suffix="+">0</span>
+            <span class="stat-label">Tools &amp; Skills</span>
+      </div>
+      </div>
+    </div>
+      </section>
+
+      <section id="skills" class="skills section">
+        <div class="container">
+        <div class="section-head section-head--center">
+        <div class="section-label split-lines">AI + Creative Tools I Use</div>
+        <h2 class="section-heading split-lines">Software &amp; <em>skills</em></h2>
+        </div>
+        <div class="tools-grid">
+          <div class="tool-card card-3d reveal-up">
+            <h3>Video Editing</h3>
+            <p>Adobe Premiere Pro, CapCut, DaVinci Resolve, Filmora</p>
+            <div class="skill-bar"><div class="skill-fill" data-level="100"></div></div>
+          </div>
+          <div class="tool-card card-3d reveal-up">
+            <h3>Animation</h3>
+            <p>Adobe After Effects</p>
+            <div class="skill-bar"><div class="skill-fill" data-level="100"></div></div>
+          </div>
+          <div class="tool-card card-3d reveal-up">
+            <h3>Photo &amp; Design</h3>
+            <p>Adobe Photoshop, Adobe Illustrator, Paintstorm Studio</p>
+            <div class="skill-bar"><div class="skill-fill" data-level="100"></div></div>
+          </div>
+          <div class="tool-card card-3d reveal-up">
+            <h3>Digital Painting</h3>
+            <p>Paintstorm Studio, Photoshop</p>
+            <div class="skill-bar"><div class="skill-fill" data-level="100"></div></div>
+          </div>
+          <div class="tool-card card-3d reveal-up">
+            <h3>AI Tools</h3>
+            <p>ChatGPT, Google AI Studio, Gemini, Envato</p>
+            <div class="skill-bar"><div class="skill-fill" data-level="100"></div></div>
+          </div>
+          <div class="tool-card card-3d reveal-up">
+            <h3>Other Skills</h3>
+            <p>Meme Creation, Storyboarding, Script-based Editing</p>
+            <div class="skill-bar"><div class="skill-fill" data-level="100"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+      <div class="marquee-band marquee-bottom">
+        <div class="marquee-track reverse">
+          <div class="marquee-set">
+            <span>AI CREATIVE</span><i>•</i>
+            <span>STORYTELLING</span><i>•</i>
+            <span>REAL RESULTS</span><i>•</i>
+            <span>FLEXIBLE PRICING</span><i>•</i>
+          </div>
+          <div class="marquee-set" aria-hidden="true">
+            <span>AI CREATIVE</span><i>•</i>
+            <span>STORYTELLING</span><i>•</i>
+            <span>REAL RESULTS</span><i>•</i>
+            <span>FLEXIBLE PRICING</span><i>•</i>
+          </div>
+        </div>
+      </div>
+
+      <section id="contact" class="contact section">
+        <div class="container">
+        <div class="section-head section-head--center">
+        <div class="section-label split-lines">Contact Me</div>
+        <h2 class="section-heading split-lines">Get <em>In Touch</em></h2>
+        </div>
+    <div class="contact-grid">
+          <div class="contact-info reveal-up">
+            <a href="https://wa.me/918098970058?text=Hi%20Surya,%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project." class="contact-block" target="_blank" rel="noopener noreferrer">
+            <span class="contact-label">WhatsApp</span>
+            <span class="contact-value">+91 8098970058</span>
+          </a>
+            <a href="mailto:suryapranav2606@gmail.com?subject=Video%20Editing%20Project%20Inquiry" class="contact-block">
+            <span class="contact-label">Email</span>
+              <span class="contact-value contact-value--email">suryapranav2606@gmail.com</span>
+          </a>
+            <a href="https://www.instagram.com/___editor_surya/" class="contact-block" target="_blank" rel="noopener noreferrer">
+            <span class="contact-label">Instagram</span>
+            <span class="contact-value">@___editor_surya</span>
+          </a>
+            <a href="https://wa.me/918098970058?text=Hi%20Surya,%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project." class="btn-primary magnetic contact-cta" target="_blank" rel="noopener noreferrer">Let's Connect Together</a>
+          </div>
+
+          <form class="contact-form reveal-up" id="contactForm">
+            <div class="form-row">
+              <input type="text" name="name" placeholder="Your Name" required />
+            </div>
+            <div class="form-row">
+              <input type="email" name="email" placeholder="Your Email" required />
+          </div>
+            <div class="form-row">
+              <label class="form-label" for="serviceSelect">Service Needed</label>
+              <select id="serviceSelect" name="service" required>
+                <option value="" disabled selected hidden>Select a service</option>
+                <option value="video-editing">Video Editing</option>
+                <option value="motion-design">Motion Design &amp; Animation</option>
+                <option value="digital-painting">Digital Painting &amp; Design</option>
+                <option value="ai-creative">AI-Enhanced Creative</option>
+                <option value="other">Other</option>
+            </select>
+          </div>
+            <div class="form-row">
+              <textarea name="message" placeholder="Tell me about your project..." rows="4" required></textarea>
+          </div>
+            <button type="submit" class="btn-primary magnetic" style="width:100%">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+        <div class="footer-top">
+          <a href="#home" class="footer-logo magnetic">Surya</a>
+      <nav class="footer-nav">
+        <a href="#home">Home</a>
+            <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Works</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="footer-socials">
+            <a href="https://www.instagram.com/___editor_surya/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="mailto:suryapranav2606@gmail.com">Email</a>
+            <a href="https://wa.me/918098970058" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Surya. All rights reserved.</p>
+          <a href="#home" class="back-top magnetic">Back to top ↑</a>
+    </div>
+  </footer>
+
+    </div>
+  </main>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <script defer src="main.js"></script>
+</body>
+</html>
